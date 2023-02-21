@@ -5,6 +5,8 @@ A simple http service that posts a page in **Conflunce**
 Build requiremnts:
 * [Maven](https://maven.apache.org/download.cgi)
 * [Java](https://www.java.com/download/ie_manual.jsp)
+
+
 Runtime requirements:
 * a Confluence account which have API access and a personal access token
 ## Posting Page
@@ -23,3 +25,9 @@ parentPageId: 0
 ```cmd
 java -cp target\CurlConfluence-1.0-SNAPSHOT-jar-with-dependencies.jar CreatePageConfluence "Sample page" "<h1>Some Content</h1>" XXX Some_label 00000000
 ```
+
+* Give only some arguments and take rest as default i.e; config.yaml
+```cmd
+java -cp target\CurlConfluence-1.0-SNAPSHOT-jar-with-dependencies.jar CreatePageConfluence - - XXX - 0
+```
+
