@@ -27,6 +27,8 @@ java -cp target\CurlConfluence-1.0-SNAPSHOT-jar-with-dependencies.jar CreatePage
 ```
 
 * Give only some arguments and take rest as default i.e; config.yaml
+
+Space key is given, rest is default
 ```cmd
 java -cp target\CurlConfluence-1.0-SNAPSHOT-jar-with-dependencies.jar CreatePageConfluence - - XXX - 0
 ```
