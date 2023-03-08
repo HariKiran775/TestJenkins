@@ -26,35 +26,30 @@ mvn clean install
 ```
 
 #### Running Confluence-PageGenerator
-##### Log file
-* Create a file with extension *.properties
-* Sample properties file and you can also exclude console handler if not necessary
-```properties
-handlers= java.util.logging.ConsoleHandler, java.util.logging.FileHandler
-.level= INFO
 
-# Configure the console handler
-java.util.logging.ConsoleHandler.level = INFO
-java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
-
-# Configure the file handler
-java.util.logging.FileHandler.level = INFO
-java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
-java.util.logging.FileHandler.pattern = LOG_FILE
-```
-
-### Environment variables
+##### Environment variables
 * Add secrets to the user variables and add the path of the log properties file.
 * Space Id and Parent page Id can also be added directly in commandline, but token and url must be present in the env variables
 ```
 CONFLUENCE_TOKEN   "Confluence API personal access token"
 CONFLUENCE_URL     "https://{domain}/confluence/rest/api/content"
-CONFLUENCE_LOGPATH "LOG_PATH"
+LOG_PATH           "/path/to/*.properties"
+LOG_LEVEL          "INFO"
 PARENT_PAGE_ID     "parent page id"
 SPACE_ID           "space id"
 ```
-### Command line
-#### CommandLineParameters
+###### The log levels in descending order are:
+* SEVERE (highest value)
+* WARNING
+* INFO
+* CONFIG
+* FINE
+* FINER
+* FINEST (lowest value)
+
+
+#### Command line
+##### CommandLineParameters
 ```cmd
 java -jar target/confluence_report.jar --help
 ```
@@ -70,6 +65,8 @@ usage: CommandLineParameters
  -s,--space <arg>     space
  -t,--title <arg>     page Title
 ```
+
+#### Post Page in confluence
 * Sample command to run the jar file
 ```cmd
 java -jar target/confluence_report.jar -create -t "Sample title" -c "Sample Content" -s XXX -p 0 -l sample_label
@@ -86,6 +83,4 @@ java -jar target/confluence_report.jar -create --title "Sample title" --content 
 ```cmd
 java -jar target/confluence_report.jar -get -pageId 000000000
 ```
-###### Check all the logs in error.log file
-
 
